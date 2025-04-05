@@ -1,6 +1,7 @@
 const Firm = require('../models/Firm')
 const Vendor = require('../models/Vendor')
 const multer = require('multer')
+const path = require('path')
 
 const storage = multer.diskStorage({
     destination: function(req,file,cb) {
@@ -43,7 +44,7 @@ const addFirm = async(req ,res)=>{
 const deleteFirmById = async(req , res)=>{
     try {
         const firmId = req.params.firmId
-        const deletedFirm = await Firm.findByIdAndDelete(focusirmId)
+        const deletedFirm = await Firm.findByIdAndDelete(firmId)
         if(!deletedFirm){
             return res.status(404).json({error:"no firm found"})
         }
