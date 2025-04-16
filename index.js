@@ -1,8 +1,8 @@
 const express = require("express");
 const dotEnv = require('dotenv');
 const mongoose = require('mongoose');
-const bodyParser = require('body-parser');
 const vendorRoutes = require('./routes/vendorRoutes');
+const bodyParser = require('body-parser');
 const firmRoutes = require('./routes/firmRoutes');
 const productRoutes = require('./routes/productRoutes');
 const cors = require('cors');
@@ -13,8 +13,7 @@ const app = express()
 const PORT = process.env.PORT || 4000;
 
 dotEnv.config();
-app.use(cors());
-app.use(express.json());
+app.use(cors())
 
 mongoose.connect(process.env.MONGO_URI)
     .then(() => console.log("MongoDB connected successfully!"))
@@ -28,7 +27,8 @@ app.use('/uploads', express.static('uploads'));
 
 app.listen(PORT, () => {
     console.log(`server started and running at ${PORT}`);
- app.get('/', (req, res) => {
-        res.send('API is working');
-      });
-      });
+});
+
+app.use('/', (req, res) => {
+    res.send("<h1> Welcome to SUBY");
+})
