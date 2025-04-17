@@ -56,7 +56,7 @@ const addFirm = async(req, res) => {
 
     } catch (error) {
         console.error(error)
-        res.status(500).json({error:"intenal server error"})
+        res.status(500).json("intenal server error")
     }
 }
 
